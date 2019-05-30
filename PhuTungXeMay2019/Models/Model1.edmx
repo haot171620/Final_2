@@ -14,14 +14,14 @@
           <Property Name="Tendangnhap" Type="nvarchar" MaxLength="100" />
           <Property Name="Matkhau" Type="nvarchar" MaxLength="12" />
         </EntityType>
-        <EntityType Name="Contact">
+        <EntityType Name="CONTACT">
           <Key>
-            <PropertyRef Name="Idcontact" />
+            <PropertyRef Name="idContact" />
           </Key>
-          <Property Name="Idcontact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idContact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tenNguoidung" Type="nvarchar" MaxLength="100" />
           <Property Name="tenContact" Type="nvarchar" MaxLength="100" />
-          <Property Name="noidungContact" Type="nvarchar" MaxLength="100" />
+          <Property Name="noidungContact" Type="nvarchar(max)" />
           <Property Name="sdt" Type="int" />
         </EntityType>
         <EntityType Name="Dathang">
@@ -132,7 +132,7 @@
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="CsK23T2bModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTACT" EntityType="Self.CONTACT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dathang" EntityType="Self.Dathang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donhang" EntityType="Self.Donhang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
@@ -182,7 +182,6 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="Admins" EntityType="CsK23T2bModel.Admin" />
-          <EntitySet Name="Contacts" EntityType="CsK23T2bModel.Contact" />
           <EntitySet Name="Dathangs" EntityType="CsK23T2bModel.Dathang" />
           <EntitySet Name="Donhangs" EntityType="CsK23T2bModel.Donhang" />
           <EntitySet Name="SanPhams" EntityType="CsK23T2bModel.SanPham" />
@@ -195,6 +194,7 @@
             <End Role="Dathang" EntitySet="Dathangs" />
             <End Role="Donhang" EntitySet="Donhangs" />
           </AssociationSet>
+          <EntitySet Name="CONTACTs" EntityType="CsK23T2bModel.CONTACT" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -215,16 +215,6 @@
           <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="Tendangnhap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Matkhau" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="Idcontact" />
-          </Key>
-          <Property Name="Idcontact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tenNguoidung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="tenContact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="noidungContact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="sdt" Type="Int32" />
         </EntityType>
         <EntityType Name="Dathang">
           <Key>
@@ -305,6 +295,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CONTACT">
+          <Key>
+            <PropertyRef Name="idContact" />
+          </Key>
+          <Property Name="idContact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenNguoidung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tenContact" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="noidungContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -342,17 +342,6 @@
                 <ScalarProperty Name="Tendangnhap" ColumnName="Tendangnhap" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Contacts">
-            <EntityTypeMapping TypeName="CsK23T2bModel.Contact">
-              <MappingFragment StoreEntitySet="Contact">
-                <ScalarProperty Name="sdt" ColumnName="sdt" />
-                <ScalarProperty Name="noidungContact" ColumnName="noidungContact" />
-                <ScalarProperty Name="tenContact" ColumnName="tenContact" />
-                <ScalarProperty Name="tenNguoidung" ColumnName="tenNguoidung" />
-                <ScalarProperty Name="Idcontact" ColumnName="Idcontact" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -408,6 +397,17 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTACTs">
+            <EntityTypeMapping TypeName="CsK23T2bModel.CONTACT">
+              <MappingFragment StoreEntitySet="CONTACT">
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="noidungContact" ColumnName="noidungContact" />
+                <ScalarProperty Name="tenContact" ColumnName="tenContact" />
+                <ScalarProperty Name="tenNguoidung" ColumnName="tenNguoidung" />
+                <ScalarProperty Name="idContact" ColumnName="idContact" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

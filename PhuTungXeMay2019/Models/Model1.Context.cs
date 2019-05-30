@@ -28,11 +28,11 @@ namespace PhuTungXeMay2019.Models
         }
     
         public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Dathang> Dathangs { get; set; }
         public virtual DbSet<Donhang> Donhangs { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<CONTACT> CONTACTs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

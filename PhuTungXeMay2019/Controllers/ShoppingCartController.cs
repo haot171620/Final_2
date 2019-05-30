@@ -54,9 +54,9 @@ namespace PhuTungXeMay2019.Controllers
                     return RedirectToAction("chitietsanpham", "Chitietsanpham", new { sanpham.Idsp });
             }
         }
-        public ActionResult DeleteCart(int Idsp)
+        public ActionResult DeleteCart(int idSp)
         {
-            SanPham sanpham = db.SanPhams.SingleOrDefault(n => n.Idsp == Idsp);
+            SanPham sanpham = db.SanPhams.SingleOrDefault(n => n.Idsp == idSp);
             if (sanpham == null)
             {
                 Response.StatusCode = 404;
@@ -66,11 +66,11 @@ namespace PhuTungXeMay2019.Controllers
             // lay gio hang ra tu session
             List<Cart1> lstCart = GetCart();
             // Kiem tra san pham co ton tai tron session
-            Cart1 sp = lstCart.SingleOrDefault(n => n.Idsp == Idsp);
+            Cart1 sp = lstCart.SingleOrDefault(n => n.Idsp == idSp);
             // Neu ton tai thi cho sua so luong
             if (sp != null)
             {
-                lstCart.RemoveAll(n => n.Idsp == Idsp);
+                lstCart.RemoveAll(n => n.Idsp == idSp);
             }
             if (lstCart.Count == 0)
             {

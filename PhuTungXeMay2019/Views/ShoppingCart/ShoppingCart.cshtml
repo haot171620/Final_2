@@ -15,7 +15,6 @@
             <th scope="col">Số lượng</th>
             <th scope="col">Thành tiền</th>
             <th scope="col">Hình ảnh</th>
-            <th scope="col">Xóa</th>
         </tr>
     </thead>
     <tbody>
@@ -30,13 +29,6 @@
                 <th scope="row">
                     <img src=@Url.Content("~/QuanLiSanPham/Image/"+item.Idsp) style="width:60px; height: 60px" ;
                 </th>
-                <td class="product-remove">
-                    <a href="#" class="remove" title="Remove this item">
-                        @Html.ActionLink("Xóa", "DeleteCart", new { Idsp = item.Idsp })
-
-
-                    </a>
-                </td>
             </tr>
         }
 

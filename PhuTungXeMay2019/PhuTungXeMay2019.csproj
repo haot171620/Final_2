@@ -175,7 +175,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart1.cs" />
-    <Compile Include="Models\Contact.cs">
+    <Compile Include="Models\CONTACT.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Dathang.cs">

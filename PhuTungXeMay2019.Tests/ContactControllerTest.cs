@@ -22,18 +22,18 @@ namespace PhuTungXeMay2019.Tests
            public void TestEditG()
         {
             var db = new CsK23T2bEntities();
-            var item = db.Contacts.First();
+            var item = db.CONTACTs.First();
             var controller = new ContactController();
 
             var result = controller.Edit(0);
             Assert.IsInstanceOfType(result, typeof(HttpNotFoundResult));
 
-            result = controller.Edit(item.Idcontact);
+            result = controller.Edit(item.idContact);
             var view = result as ViewResult;
             Assert.IsNotNull(view);
-            var model = view.Model as Contact;
+            var model = view.Model as CONTACT;
             Assert.IsNotNull(model);
-            Assert.AreEqual(item.Idcontact, model.Idcontact);
+            Assert.AreEqual(item.idContact , model.idContact);
             Assert.AreEqual(item.tenNguoidung, model.tenNguoidung);
             Assert.AreEqual(item.tenContact, model.tenContact);
             Assert.AreEqual(item.noidungContact, model.noidungContact);

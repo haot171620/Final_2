@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PhuTungXeMay2019.Models;
+using System.IO;
 
 namespace PhuTungXeMay2019.Controllers
 {
@@ -15,35 +16,37 @@ namespace PhuTungXeMay2019.Controllers
         private CsK23T2bEntities db = new CsK23T2bEntities();
 
         // GET: /Contact/
-        public ActionResult Index(string searchString)
+        public ActionResult Index(String searchString)
         {
+            var model = new CsK23T2bEntities();
 
-            return View(db.Contacts.ToList());
 
+            var movies = from m in db.CONTACTs
+                         select m;
 
-            var links = from l in db.Contacts 
-                        select l;
-            if (!String.IsNullOrEmpty(searchString)) 
+            if (!String.IsNullOrEmpty(searchString))
             {
-                links = links.Where(s => s.tenNguoidung.Contains(searchString)); 
+
+                movies = movies.Where(s => s.tenNguoidung.Contains(searchString));
             }
-            return View(db.Contacts.ToList());
+
+            return View(movies);
 
         }
 
         // GET: /Contact/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            var model = db.CONTACTs.Find(id);
+            if (model == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(model);
         }
 
         // GET: /Contact/Create
@@ -57,31 +60,31 @@ namespace PhuTungXeMay2019.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="idContact,tenContact,noidungContact,idNguoidung,tenNguoidung,hinhanhNguoidung,gioitinh,diachi,sdt,ghichu")] Contact contact)
+        public ActionResult Create(CONTACT model)
         {
             if (ModelState.IsValid)
             {
-                db.Contacts.Add(contact);
+                db.CONTACTs.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(contact);
+            return View(model);
         }
 
         // GET: /Contact/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            var model = db.CONTACTs.Find(id);
+            if (model == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(model);
         }
 
         // POST: /Contact/Edit/5
@@ -89,30 +92,30 @@ namespace PhuTungXeMay2019.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="idContact,tenContact,noidungContact,idNguoidung,tenNguoidung,hinhanhNguoidung,gioitinh,diachi,sdt,ghichu")] Contact contact)
+        public ActionResult Edit(CONTACT model)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contact).State = EntityState.Modified;
+                db.Entry(model).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contact);
+            return View(model);
         }
 
         // GET: /Contact/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            var model = db.CONTACTs.Find(id);
+            if (model == null)
             {
                 return HttpNotFound();
             }
-            return View(contact);
+            return View(model);
         }
 
         // POST: /Contact/Delete/5
@@ -120,8 +123,8 @@ namespace PhuTungXeMay2019.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contact contact = db.Contacts.Find(id);
-            db.Contacts.Remove(contact);
+            var model = db.CONTACTs.Find(id);
+            db.CONTACTs.Remove(model);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
