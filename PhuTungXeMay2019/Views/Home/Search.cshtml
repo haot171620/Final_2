@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+<div class="row">
+    @foreach (var item in ViewData["Item"] as IList<PhuTungXeMay2019.Models.SanPham>)
+    {
+        <div class="col-sm-3">
+            <div class="single-item">
+                <div class="single-item-header">
+
+                    <img src=@Url.Content("~/QuanLiSanPham/Image/"+item.Idsp)/>
+                        </div>
+         
+                    <div class="single-item-body">
+                        <p class="single-item-title">@item.Tensp</p>
+                        <p class="single-item-price">
+                            <span>
+                                @String.Format("{0:0,0}", item.Giatien) ₫
+                            </span>
+                        </p>
+                    </div>
+           
+               
+                <div class="single-item-caption">
+                    <a class="add-to-cart pull-left" href="@Url.Action("ShoppingCart","ShoppingCart")"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="beta-btn primary" href="@Url.Action("chitietsanpham", "Chitietsanpham", new { @Idsp = item.Idsp })">Chi tiết <i class="fa fa-chevron-right"></i></a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="space50">&nbsp;</div>
+
+
+        <div class="space50">&nbsp;</div>
+    }
+
+</div>
+

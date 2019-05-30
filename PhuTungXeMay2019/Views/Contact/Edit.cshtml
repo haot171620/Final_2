@@ -1,0 +1,67 @@
+﻿@model PhuTungXeMay2019.Models.Contact
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div class="slide_content_wrap">
+        <h4 class="title">Chỉnh Sửa Thông Tin Liên Hệ</h4>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Idcontact)
+            <div class="form-group ">
+                <label>Họ Và Tên</label>
+                <input type="text" class="form-control"
+                       @Html.EditorFor(model => model.tenNguoidung)
+                       @Html.ValidationMessageFor(model => model.tenNguoidung)
+            </div>
+            
+            <div class="form-group">
+                <label>Tiêu Đề Liên Hệ</label>
+                <input type="text" class="form-control"
+                       @Html.EditorFor(model => model.tenContact)
+                       @Html.ValidationMessageFor(model => model.tenContact)
+            </div>
+            <div class="form-group">
+                <label>Nội Dung Liên Hệ</label>
+                <textarea class="form-control" )
+                          @Html.TextAreaFor(model => model.noidungContact)
+                          @Html.ValidationMessageFor(model => model.noidungContact)
+            </div>
+            <div class="form-group">
+                <label>Số Điện Thoại</label>
+                <input type="text" class="form-control"
+                       @Html.TextBoxFor(model => model.sdt)
+                       @Html.ValidationMessageFor(model => model.sdt)
+            </div>
+       </div>   
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-primary" />
+                    
+                </div>
+                <div>
+                    @Html.ActionLink("Quay lại List Contact", "Index")
+                </div>
+            </div>
+       
+    }
+    
+    
+</body>
+</html>

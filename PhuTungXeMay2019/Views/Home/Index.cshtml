@@ -1,0 +1,46 @@
+﻿@using PhuTungXeMay2019.Models;
+@model List<SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="head">Sản phẩm</h2>
+<div class="top-box">
+    @foreach (var item in Model)
+{
+    <div class="col_1_of_3 span_1_of_3">
+      
+         <a href="@Url.Action("chitietsanpham", "Chitietsanpham", new { @Idsp = item.Idsp })">
+            <div class="inner_content clearfix">
+               
+                <div class="product_image">
+                    <img src=@Url.Content("~/QuanLiSanPham/Image/"+item.Idsp) />
+                </div>
+                <div class="price">
+                    <div class="cart-left">
+                        <p class="title">Tên sản phẩm: @item.Tensp</p>
+                        <p class="title">Số lượng: @item.Soluong</p>
+                        <p class="title"> Xuất Xứ:@item.Xuatxu</p>
+                        <p class="title">Chi tiết:@item.Chitiet</p>
+                        <div class="price1">
+                            <span class="actual">Giá Tiền:@item.Giatien</span>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+               
+            </div>
+               
+        </a>
+
+
+    </div>
+                }
+                
+   
+    <div class="clear"></div>
+</div>
+
+
+

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PhuTungXeMay2019.Models.Dathang>
+
+@{
+    ViewBag.Title = "Giỏ Hàng";
+}
+
+<h2>Thông tin giỏ hàng </h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Tên Sản Phẩm 
+        </th>
+        <th>
+            Hình ảnh 
+        </th>
+        <th>
+           Giá tiền
+        </th>
+        <th>
+           Số Lượng
+        </th>
+        <th>
+           Tổng Cộng
+        </th>
+        <th>
+            Ghi chú
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <mark>@item.Tensp</mark>
+        </td>
+        <td>
+            <img src="@Url.Action("Image", new { id = item.Idsp })" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Idkhachhang)
+        </td>
+        <td>
+            @item.Iddonhang
+        <td>
+            @item.Soluong.ToString()
+        </td>
+        
+        <td>
+           @item.Diachi
+        </td>
+
+        <td>
+            @Html.ActionLink("Chỉnh sửa ", "Edit", new { id=item.Idsp }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.Idsp }) |
+            <div>
+                @Html.ActionLink("Xóa", "Delete", new { id = item.Idsp })
+          
+            </div>
+            
+        </td>
+    </tr>
+}
+
+</table>

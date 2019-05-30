@@ -1,0 +1,88 @@
+﻿@model IEnumerable<PhuTungXeMay2019.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<h2>Quản Lí Sản Phẩm</h2>
+<style>
+    img {
+        width: 110px;
+        height: 102px;
+    }
+</style>
+
+<p>
+    @Html.ActionLink("Thêm sản phẩm mới", "Create")
+    @using (Html.BeginForm())
+    {
+    <p>
+        @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
+    </p>
+    }
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Loại sản phẩm
+        </th>
+        <th>
+            Giá tiền
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Xuất xứ
+        </th>
+        <th>
+            Chi tiết sản phẩm
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Tensp
+            </td>
+            <td>
+                @item.Loaisp
+            </td>
+            <td>
+                @item.Giatien.Value
+            </td>
+            <td>
+                @item.Soluong.ToString()
+            </td>
+            <td>
+                @item.Xuatxu
+            </td>
+            <td>
+                @item.Chitiet
+            </td>
+
+
+            <td>
+                <img src="@Url.Action("Image", new { id = item.Idsp})" />
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.Idsp })">Sửa</a> |
+                <a href="@Url.Action("Details", new { id = item.Idsp })">Xem</a> |
+                <a href="@Url.Action("Delete", new { id = item.Idsp })">Xóa</a> |
+
+            </td>
+        </tr>
+    }
+
+</table>
+ 
+    
+

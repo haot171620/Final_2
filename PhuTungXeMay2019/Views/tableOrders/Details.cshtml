@@ -1,0 +1,66 @@
+﻿@model PhuTungXeMay2019.Models.tableOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>CHI TIẾT ĐƠN HÀNG</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenSP)
+        </dd>
+
+        <dt>
+            Hình ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hinhSP)
+        </dd>
+
+        <dt>
+            Gía tiền
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dongiaSP)
+        </dd>
+
+        <dt>
+            Số Lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluongSP)
+        </dd>
+
+        <dt>
+            Tổng tiền
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thanhtien)
+        </dd>
+
+        <dt>
+           Ghi chú
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghichu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+ 
+    @Html.ActionLink("Trở về", "Index")
+</p>

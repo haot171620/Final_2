@@ -1,0 +1,70 @@
+﻿@model IEnumerable<PhuTungXeMay2019.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tensp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loaisp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Xuatxu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Giatien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chitiet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hinhanh)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tensp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loaisp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Xuatxu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Giatien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chitiet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hinhanh)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Idsp }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Idsp }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Idsp })
+        </td>
+    </tr>
+}
+
+</table>

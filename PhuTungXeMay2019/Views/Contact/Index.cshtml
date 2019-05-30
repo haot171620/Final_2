@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PhuTungXeMay2019.Models.Contact>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        #table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        #table td, #table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        #table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #table tr:hover {
+            background-color: #ddd;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="slide_content_wrap">
+        <h1 style="font-size:30px;">Xem Thông Tin Liên Hệ</h1>
+        <!-- 1. Đoạn cần thêm -->
+        @using (Html.BeginForm("Index", "Link", FormMethod.Get))
+        {
+            <p>
+                Tìm Kiếm: @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
+            </p>
+        }
+        <!-- Kết thúc -->
+        <hr />    
+    </div>
+    <table id="table">
+        <tr>
+            <th>Họ và Tên</th>
+            <th>Tiêu Đề Liên Hệ</th>
+            <th>Nội Dung Liên Hệ</th>
+            <th>Số Điện Thoại</th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenNguoidung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenContact)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.noidungContact)
+            </td>         
+            <td>
+                @Html.DisplayFor(modelItem => item.sdt)
+            </td>         
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id=item.Idcontact }) |
+                @Html.ActionLink("Xem", "Details", new { id=item.Idcontact }) |
+                @Html.ActionLink("Xóa", "Delete", new { id=item.Idcontact })
+            </td>
+        </tr>
+    }    
+    </table>
+</body>
+

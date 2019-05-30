@@ -1,0 +1,64 @@
+﻿@model PhuTungXeMay2019.Models.Contact
+
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style type="text/css">
+        .abc {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide_content_wrap">
+        <b style ="font-size:30px">Xóa Thông Tin Liên Hệ</b>
+    </div>
+    <hr />
+    <div class="abc">
+
+        <ul class="dl-horizontal">
+            <div style="font-size: 160%">
+                <div>
+                    <b>Họ Và Tên: </b>
+                    <a>
+                        @Html.DisplayFor(model => model.tenNguoidung)
+                    </a>
+                </div>
+                <div>
+                    <b>Tiêu Đề Liên Hệ:</b>
+                    <a>
+                        @Html.DisplayFor(model => model.tenContact)
+                    </a>
+
+                </div>
+                <div>
+                    <b>Nội Dung Liên Hệ:</b>
+                    <a>
+                        @Html.DisplayFor(model => model.noidungContact)
+                    </a>
+                </div>
+                <div>
+                    <b>Số Điện Thoại:</b>
+                    <a>
+                        @Html.DisplayFor(model => model.sdt)
+                    </a>
+                </div>
+
+            </div>
+        </ul>
+    </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-primary" /> |
+        <button name="button" type="button">
+            @Html.ActionLink("Quay lại List Contact", "Index")
+        </button>
+
+    </div>
+</body>
+</html>

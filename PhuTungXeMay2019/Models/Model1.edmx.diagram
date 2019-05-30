@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b05bbcfd37fa43cabf4c1107f017a2c0" Name="Diagram1" ZoomLevel="91">
+        <EntityTypeShape EntityType="CsK23T2bModel.Admin" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CsK23T2bModel.Contact" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CsK23T2bModel.Dathang" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CsK23T2bModel.Donhang" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="CsK23T2bModel.SanPham" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="CsK23T2bModel.sysdiagram" Width="1.5" PointX="4.75" PointY="4.75" />
+        <AssociationConnector Association="CsK23T2bModel.FK__Dathang__Idsp__7A672E12" />
+        <AssociationConnector Association="CsK23T2bModel.FK__Donhang__IdDonha__7E37BEF6" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
