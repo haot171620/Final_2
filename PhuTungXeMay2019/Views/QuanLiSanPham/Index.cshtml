@@ -14,10 +14,11 @@
 </style>
 
 <p>
-    @Html.ActionLink("Thêm sản phẩm mới", "Create")
-    @using (Html.BeginForm())
-    {
-    <p>
+    @Html.ActionLink("Thêm sản phẩm mới", "Create") |
+    <a href="/home">
+        <input type="submit" value="Trở về">
+    </a>
+       @using (Html.BeginForm()) { <p>
         @Html.TextBox("SearchString") <input type="submit" value="Tìm kiếm" />
     </p>
     }
