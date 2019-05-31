@@ -16,7 +16,7 @@ namespace PhuTungXeMay2019.Models
         public int tonkho { get; set; }
         public int Quantity { get; set; }
         public string loaiSp { get; set; }
-        public int loaiSP { get; set; }
+        public string loaiSP { get; set; }
         public int Hinhanh { get; set; }
         public double thanhTien
         {
