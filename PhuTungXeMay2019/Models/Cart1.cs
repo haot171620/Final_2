@@ -17,6 +17,7 @@ namespace PhuTungXeMay2019.Models
         public int Quantity { get; set; }
         public string loaiSp { get; set; }
         public int loaiSP { get; set; }
+        public int Hinhanh { get; set; }
         public double thanhTien
         {
             get { return soluong * dongia; }
@@ -32,6 +33,7 @@ namespace PhuTungXeMay2019.Models
             soluong = 1;
             dongia = Convert.ToInt32( sp.Giatien);
             loaiSp = sp.Loaisp;
+            Hinhanh = Convert.ToInt32(sp.Hinhanh);
         }
     }
 }

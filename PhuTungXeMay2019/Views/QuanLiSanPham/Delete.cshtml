@@ -1,4 +1,4 @@
-﻿@model PhuTungXeMay2019.Models.Sanpham
+﻿@model PhuTungXeMay2019.Models.SanPham
 
 @{
     ViewBag.Title = "Delete";
@@ -11,83 +11,65 @@
     <h4>Sản phẩm</h4>
     <hr />
     <dl class="dl-horizontal">
-        
-            <dt>
-                @Html.DisplayNameFor(model => model.Tensp)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Tensp)
-            </dd>
+        <dt>
+            Tên sản phẩm
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Loaisp)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tensp)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Loaisp)
-            </dd>
+        <dt>
+            Loại sản phẩm
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Gia)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Loaisp)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Gia)
-            </dd>
+        <dt>
+            Giá tiền
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Soluong)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Giatien)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Soluong)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Soluong)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Xuatxu)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Soluong)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Xuatxu)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Xuatxu)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Chitietsp)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Xuatxu)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Chitietsp)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Chitiet)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Nhasx)
-            </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Chitiet)
+        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nhasx)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinhanh)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Nhacungcap)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Nhacungcap)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Hinhanh)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Hinhanh)
-            </dd>
-        
-
+        <dd>
+            @Html.DisplayFor(model => model.Hinhanh)
+        </dd>
     </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
@@ -96,4 +78,15 @@
         </div>
     }
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
